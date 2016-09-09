@@ -53,7 +53,19 @@
 </code>
 </pre> 
 
-## (1)标签属性
+## [1]渲染html
+
+- html标签方式
+
+<pre class="code-block">
+<code>
+    <span class="keyword">var</span> navBar = <span class="tag">&lt;ul&gt;&lt;li&gt;主页&lt;/li&gt;&lt;li&gt;产品&lt;/li&gt;&lt;li&gt;关于我们&lt;/li&gt;&lt;/ul&gt;;</span>
+    <span class="obj">ReactDOM</span>.<span class="method">render</span>(navBar,<span class="obj">document</span>.<span class="method">getElementById</span>(<span class="str">'nav'</span>));
+</code>
+</pre>
+
+
+## [2]标签属性
 
 - html class属性
 
@@ -70,3 +82,5 @@
     <span class="tag">&lt;input htmlFor="" /&gt;</span>
 </code>
 </pre>
+
+
