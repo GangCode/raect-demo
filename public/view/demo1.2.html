@@ -9,23 +9,38 @@
         <script src="../js/libs/browser.min.js"></script>
     </head>
     <body>
-        <div id="components"></div>
-        <div id="html_tag"></div>
+        <div id="text"></div>
+        <div id="radio"></div>
 
         <script type="text/babel">
-            var NavBar = React.createClass({
-                displayName: 'NavBar',
+            var labelText = '文本框';
+            var inputType='text';
+            var inputClass = 'input-text';
+            
+            var FromComponetInput = React.createClass({
                 render: function() {
                     return (
-                        <ul><li>主页</li><li>产品</li><li>关于我们</li></ul>
+                        <label className='form-label'>{labelText}: <input type={inputType}  className={inputClass}/></label>
+                    );
+                }
+            });
+           
+            var FromComponet = React.createClass({
+                render: function() {
+                    return (
+                        <form className='form'><FromComponetInput/></form>
                     );
                 }
             });
 
-            ReactDOM.render(React.createElement(NavBar, null),document.getElementById('components'));
+            ReactDOM.render(<FromComponet/>,document.getElementById('text'));
             
-            var navBar = <ul><li>主页</li><li>产品</li><li>关于我们</li></ul>;
-            ReactDOM.render(navBar, document.getElementById('html_tag'));
+             var labelText = '单选按钮';
+            var inputType='radio';
+            var inputClass = 'input-radio';
+            
+            ReactDOM.render(<FromComponet/>,document.getElementById('radio'));
+            
         </script>
     </body>
 </html>
