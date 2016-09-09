@@ -15,55 +15,34 @@
 
 ## JSX创建组件
 
-- 自定义组件
-
-<pre class="code-block">
-<code>
-
-    <span class="keyword">var</span> <span class="obj">CommentItem</span> = <span class="obj">React</span>.<span class="method">createClass</span>({
-        <span class="prop">render</span>: <span class="keyword">function</span>() {
-            <span class="keyword">return</span>  (
-                <span class="obj">React</span>.<span class="method">createElement</span>(<span class="str">'div'</span>,{<span class="prop">className</span>: <span class="str">'conment-item'</span>},<span class="str">'show items'</span>)
-            );
-        }
-    });
-
-    <span class="keyword">var</span> <span class="obj">CommentLists</span> = <span class="obj">React</span>.<span class="method">createClass</span>({
-        <span class="prop">render</span>: <span class="keyword">function</span>(){
-            <span class="keyword">return</span> (
-                <span class="tag">&lt;div className='comment-list'&gt;</span>
-                    <span class="tag">&lt;CommentItem /&gt;</span>
-                <span class="tag">&lt;/div&gt;</span>
-            );
-        }
-    });
-
-    <span class="keyword">var</span> <span class="obj">CommentBox</span> = <span class="obj">React</span>.<span class="method">createClass</span>({
-        <span class="prop">render</span>: <span class="keyword">function</span>() {
-            <span class="keyword">return</span>(
-                <span class="tag">&lt;div className='comment-box'&gt;</span>
-                    <span class="tag">&lt;CommentLists /&gt;</span>
-                <span class="tag">&lt;/div&gt;</span>
-            );
-        }
-    });
-
-    <span class="obj">ReactDOM</span>.<span class="method">render</span>(<span class="tag">&lt;CommentBox /&gt;</span>,<span class="obj">document</span>.<span class="method">getElementById</span>(<span class="str">'components'</span>));
-
-</code>
-</pre> 
-
 ## [1]渲染html
+>源码：demo1.1.html
 
 - html标签方式
 
 <pre class="code-block">
 <code>
+    <
     <span class="keyword">var</span> navBar = <span class="tag">&lt;ul&gt;&lt;li&gt;主页&lt;/li&gt;&lt;li&gt;产品&lt;/li&gt;&lt;li&gt;关于我们&lt;/li&gt;&lt;/ul&gt;;</span>
-    <span class="obj">ReactDOM</span>.<span class="method">render</span>(navBar,<span class="obj">document</span>.<span class="method">getElementById</span>(<span class="str">'nav'</span>));
+    <span class="obj">ReactDOM</span>.<span class="method">render</span>(navBar,<span class="obj">document</span>.<span class="method">getElementById</span>(<span class="str">'components'</span>));
 </code>
 </pre>
 
+- react组件形式
+
+<pre class="code-block">
+<code>
+    <span class="keyword">var</span> <span class="obj">NavBar</span> = <span class="obj">React</span>.<span class="method">createClass</span>({
+        <span class="prop">displayName</span> :<span class="str"> 'NavBar'</span>,
+        <span class="prop">render</span>: <span class="keyword">function</span>() {
+            <span class="keyword">return</span> (
+                <span class="tag">&lt;ul&gt;&lt;li&gt;主页&lt;/li&gt;&lt;li&gt;产品&lt;/li&gt;&lt;li&gt;关于我们&lt;/li&gt;&lt;/ul&gt;;</span>
+            );
+        }
+    });
+    ReactDOM.render(React.createElement(NavBar, null),document.getElementById('components'));
+</code>
+</pre>
 
 ## [2]标签属性
 
