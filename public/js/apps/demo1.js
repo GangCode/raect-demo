@@ -11,7 +11,7 @@ ReactDOM.render(React.createElement(NavBar, null), document.getElementById('comp
 
 var navBar = (
     <ul>
-     <li>主页</li>
+        <li>主页</li>
         <li>产品</li>
         <li>关于我们</li>
     </ul>
