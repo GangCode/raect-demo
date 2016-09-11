@@ -4,28 +4,14 @@
         <title>render html</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../js/libs/react-15.3.1/build/react.js"></script>
-        <script src="../js/libs/react-15.3.1//build/react-dom.js"></script>
+        <script src="../js/libs/react-15.3.1/react.js"></script>
+        <script src="../js/libs/react-15.3.1//react-dom.js"></script>
         <script src="../js/libs/browser.min.js"></script>
     </head>
     <body>
         <div id="components"></div>
         <div id="html_tag"></div>
 
-        <script type="text/babel">
-            var NavBar = React.createClass({
-                displayName: 'NavBar',
-                render: function() {
-                    return (
-                        <ul><li>主页</li><li>产品</li><li>关于我们</li></ul>
-                    );
-                }
-            });
-
-            ReactDOM.render(React.createElement(NavBar, null),document.getElementById('components'));
-            
-            var navBar = <ul><li>主页</li><li>产品</li><li>关于我们</li></ul>;
-            ReactDOM.render(navBar, document.getElementById('html_tag'));
-        </script>
+        <script type="text/babel" src="../js/apps/demo1.js"></script>
     </body>
 </html>
