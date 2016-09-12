@@ -11,18 +11,18 @@ class ShowComment extends React.Component{
     constructor() {
         super();
         this.state = {
-            selected: false
+            checked: false
         };
         this.handleClick = this.handleClick.bind(this);
     } 
     
     handleClick(){
-        this.setState({ selected : !this.state.selected });
+        this.setState({ checked : !this.state.checked });
         console.log("changed")
     }
     
     render(){
-        const text = this.state.selected ? 'selected' : 'haven\'t selected';
+        const text = this.state.checked ? 'checked' : 'haven\'t checked';
         return (
             <div>
                 <CheckBoxComment labelText='关' radioVal='0' onClick={this.handleClick}/>
