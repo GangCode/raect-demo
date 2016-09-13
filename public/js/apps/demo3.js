@@ -6,14 +6,10 @@ var TextComment = React.createClass({
         return (
             <label>
                 {this.props.labelText}:
-                <input type={this.props.inputType} name={this.props.name} placeholder={this.props.tips} onBlur={this.checkText}/>
+                <input type={this.props.inputType} name={this.props.name} placeholder={this.props.tips}/>
             </label>
         );
-    },
-    checkText : function(e){
-        if (e.target.value==='admin') {
-        }
-    }
+    }   
 });
 
 /**
@@ -33,12 +29,15 @@ var CheckComment = React.createClass({
             </label>        
         );
     },
-    CheckChange : function(e){
+    CheckChange : function(e){//checkbox或radio状态改变
         console.log(e.target.checked)
         this.setState({checked:e.target.checked});
     }
 });
 
+/**
+ * 下拉列表组件
+ */
 var SelectComment = React.createClass({
     getInitialState : function(){
         return {selected : '0'}
@@ -57,12 +56,15 @@ var SelectComment = React.createClass({
             </div>        
         );
     },
-    selectChange : function(e){
+    selectChange : function(e){//select选项改变
         console.log(e.target.value)
         this.setState({selected : e.target.value});
     }
 });
 
+/**
+ * 按钮组件
+ */
 var ButtonComment = React.createClass({
     render : function(){
         return (
@@ -73,7 +75,7 @@ var ButtonComment = React.createClass({
     }
 });
 
-var LoginComment = React.createClass({
+var RegistComment = React.createClass({
     render : function(){
         return (
             <form method='get' action=''>
@@ -107,4 +109,4 @@ var options =[
     {selectedVal:'2',selectedName:'杭州'}
 ];
 
-ReactDOM.render(<LoginComment />,document.getElementById('main'));
+ReactDOM.render(<RegistComment />,document.getElementById('main'));
