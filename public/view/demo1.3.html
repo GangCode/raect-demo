@@ -4,13 +4,27 @@
         <title>render html</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <script src="../js/libs/react-15.3.1/react.js"></script>
+
+        <style>
+            .login{
+                border: solid 1px green;
+                width: 400px;
+                text-align: center;
+            }
+            .login div:nth-child(n+1){
+                margin: 20px;
+            }
+            .login div:nth-child(5)  .btn{
+                margin: 10px;
+            }
+        </style>
+        <script src="../js/libs/react-15.3.1/react.js"></script>
         <script src="../js/libs/react-15.3.1//react-dom.js"></script>
         <script src="../js/libs/browser.min.js"></script>
     </head>
     <body>
-        <div id="text"></div>
-        <div id="radio"></div>
+
+        <div id="main"></div>
 
         <script type="text/babel" src="../js/apps/demo3.js"></script>
     </body>
