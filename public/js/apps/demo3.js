@@ -4,9 +4,9 @@
 var TextComment = React.createClass({
     render : function () {
         return (
-            <label>
+            <label className={this.props.class}>
                 {this.props.labelText}:
-                <input type={this.props.inputType} name={this.props.name} placeholder={this.props.tips}/>
+                <input type={this.props.inputType} id={this.props.id} name={this.props.name} placeholder={this.props.tips} />
             </label>
         );
     }   
@@ -23,15 +23,17 @@ var CheckComment = React.createClass({
     },
     render : function(){
         return (
-            <label>
-                {this.props.labelText}:
-                <input type={this.props.checkType} name={this.props.name} checked={this.state.checked} onChange={this.CheckChange}/>
+            <label className={this.props.class}>
+                {this.props.labelText}
+                <input type={this.props.checkType} id={this.props.id} name={this.props.name} checked={this.state.checked} onChange={this.CheckChange}/>
             </label>        
         );
     },
-    CheckChange : function(e){//checkbox或radio状态改变
-        console.log(e.target.checked)
-        this.setState({checked:e.target.checked});
+    CheckChange : function(e){
+        console.info(e.target.checked);
+        this.setState({
+            checked : e.target.checked
+        });
     }
 });
 
@@ -40,15 +42,15 @@ var CheckComment = React.createClass({
  */
 var SelectComment = React.createClass({
     getInitialState : function(){
-        return {selected : '0'}
+        return {selected : '0'};
     },
     render : function(){
         return (
-            <div>
+            <div className={this.props.class}>
                 <label>{this.props.labelText}:</label>
-                <select onChange={this.selectChange} value={this.state.selected} id={this.props.id}>
+                <select id={this.props.id} name={this.props.name} onChange={this.selectChange}>
                     {
-                        this.props.opts.map(function(item){
+                        this.props.opts.map(function(item){                            
                             return <option key={item.selectedVal}>{item.selectedName}</option>
                         })
                     }
@@ -56,9 +58,11 @@ var SelectComment = React.createClass({
             </div>        
         );
     },
-    selectChange : function(e){//select选项改变
-        console.log(e.target.value)
-        this.setState({selected : e.target.value});
+    selectChange : function(e){
+        console.info(e.target.value);
+        this.setState({
+            selected : e.target.value
+        });
     }
 });
 
@@ -68,8 +72,8 @@ var SelectComment = React.createClass({
 var ButtonComment = React.createClass({
     render : function(){
         return (
-            <span className='btn'>
-                <button type={this.props.btnType}>{this.props.btnText}</button>
+            <span className={this.props.class}>
+                <button type={this.props.btnType} id={this.props.id}>{this.props.btnText}</button>
             </span>
         );
     }
@@ -81,21 +85,21 @@ var RegistComment = React.createClass({
             <form method='get' action=''>
                 <div className='login'>
                     <div>
-                        <TextComment inputType='text' name='username' labelText='用户名' tips='请输入用户名'/>
+                        <TextComment labelText='用户名' inputType='text' class='text-input' name='username' tips='请输入用户名' />
                     </div>
                     <div>
-                    
-                        <TextComment inputType='password' name='password' labelText='密&nbsp;码' tips='请输入密码'/>
+                        <TextComment labelText='密&nbsp;码' inputType='password' class='text-input' name='password' tips='请输入密码' />
+                    </div>
+                    <SelectComment labelText='经常登录属地' id='loginArea' opts={options} class='select-input'/>
+                    <div>
+                        <span>登录客户端:</span>
+                        <CheckComment labelText='手机' checkType='checkbox' class='check-input' name='device' />
+                        <CheckComment labelText='pad' checkType='checkbox' class='check-input' name='device' />
+                        <CheckComment labelText='PC' checkType='checkbox' class='check-input' name='device' />
                     </div>
                     <div>
-                        <SelectComment id='area' labelText='属地' opts={options} />
-                    </div>
-                    <div>
-                        <CheckComment checkType='checkbox' name='savedPassword' labelText='记住用户名'/>
-                    </div>
-                    <div>
-                        <ButtonComment btnType='submit' btnText='登录'/>
-                        <ButtonComment btnType='reset' btnText='重置'/>
+                        <ButtonComment btnType='submit' btnText='登录' class='btn'/>
+                        <ButtonComment btnType='reset' btnText='重置' class='btn'/>
                     </div>
                 </div>
             </form>
@@ -104,9 +108,8 @@ var RegistComment = React.createClass({
 });
 
 var options =[
-    {selectedVal:'0',selectedName:'请选择'},
-    {selectedVal:'1',selectedName:'上海'},
-    {selectedVal:'2',selectedName:'杭州'}
+    {selectedVal:'0',selectedName:'上海'},
+    {selectedVal:'1',selectedName:'杭州'}
 ];
 
 ReactDOM.render(<RegistComment />,document.getElementById('main'));
