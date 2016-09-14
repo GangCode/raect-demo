@@ -1,35 +1,32 @@
-var labelText = '文本框';
-var inputType='text';
-var inputClass = 'input-text';
-
-var FromComponetInput = React.createClass({
-    render: function() {
-        return (
-            <label className='form-label'>{labelText}: <input type={inputType}  className={inputClass}/></label>
-        );
-    }
-});
-
-var FromComponet = React.createClass({
-    render: function() {
-        return (
-            <form className='form'><FromComponetInput/></form>
-        );
-    }
-});
-
-ReactDOM.render(<FromComponet/>,document.getElementById('text'));
-
-var labelText = '单选按钮';
-var inputType='radio';
-var inputClass = 'input-radio';
-ReactDOM.render(<FromComponet/>,document.getElementById('radio'));
-
+/**
+ * react组件中遍历数据
+ */
 var List = React.createClass({
-    render : function(){
+    render: function() {
         return (
-            <ul><li>{this.props.content}</li></ul>//this.props.xxxx===>组件定义的属性名称
+           <div>下列不属于同一朝代的人物是：
+                {
+                    this.props.list.map(function(item,index){     
+                        return (
+                            <label key={index}>
+                                {item.name}
+                                {
+                                    index===0 ? <input type='radio' name='person' defaultChecked/> : <input type='radio' name='person'/>
+                                }
+                            </label>
+                        )
+                    })
+                }
+            </div>
         );
     }
 });
-ReactDOM.render(<List content='text'/>,document.getElementById('data'));
+
+var list = [
+    {name:'张良'},
+    {name:'李斯'},
+    {name:'张仪'}
+];
+
+ReactDOM.render(<List list={list}/>,document.getElementById('main'));
+

@@ -1,41 +1,24 @@
-var items = [
-    { id : 0, name : '主页'},
-    { id : 1, name : '产品'},
-    { id : 2, name : '关于我们'}
-];
 
 /**
  * react组件形式渲染html
  */
 
-var NavBar = React.createClass({
-    displayName: 'NavBar',
+var Temp = React.createClass({
+    displayName: 'Temp',
     render : function () {
         return (
-            <ul>
-                {
-                    items.map(function (item) {
-                        return <li key={item.id}>{item.name}</li>
-                    })
-                }
-            </ul>
+           <span>hello world!</span>
         );
     }
 });
-ReactDOM.render(React.createElement(NavBar, null), document.getElementById('components'));
+ReactDOM.render(<Temp />, document.getElementById('components'));
 
 /**
- * react标签形式渲染html
+ * JSX标签形式渲染html
  */
-items.push({ id : 3, name : '下载'});
-var navBar = (
-    <ul>
-        {
-            items.map(function (item) {
-                return <li key={item.id}>{item.name}</li>
-            })
-        }
-    </ul>
+
+var temp = (
+    <span>hello world!</span>
 );
-ReactDOM.render(navBar, document.getElementById('html_tag'));
+ReactDOM.render(temp, document.getElementById('jsx_tag'));
 
