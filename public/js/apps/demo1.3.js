@@ -107,7 +107,7 @@ var RegistComment = React.createClass({
     }
 });
 
-var options =[
+var options = [
     {selectedVal:'0',selectedName:'上海'},
     {selectedVal:'1',selectedName:'杭州'}
 ];
